@@ -1,6 +1,6 @@
 package com.example.wolfandsheeps;
 
-import android.util.Log;
+
 
 public class GameLogic {
 	protected int[][] feeld = new int[8][8];
@@ -108,13 +108,11 @@ public class GameLogic {
 			for(int j = 0; j < feeld.length; j++){
 				if(feeld[i][j] == SHEEP){
 					if(lastRow[0] < i){
-						Log.d("DEBUG", "Last Row Sheep= " + i);
 						lastRow[0] = i;	
 					}
 				}
 				if(feeld[i][j] == WOLF){
 					if(lastRow[1] < i){
-						Log.d("DEBUG", "Last Row Wolf= " + i);
 						lastRow[1] = i;	
 					}
 				}

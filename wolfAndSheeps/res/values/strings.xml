@@ -5,5 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="restart_game">Restart</string>
-
+	<string name="exit">Exit</string>
+	<string name="sheep_win">Sheeps win</string>
+	<string name="wolf_win">Wolf win</string>
+	<string name="game_start">Game starts sheeps</string>
+    
 </resources>

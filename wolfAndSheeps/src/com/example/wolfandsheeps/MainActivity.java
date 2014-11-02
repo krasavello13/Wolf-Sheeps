@@ -1,11 +1,9 @@
 package com.example.wolfandsheeps;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,15 +46,13 @@ public class MainActivity extends Activity {
         gl.setOrientation(0);
         gl.setColumnCount(8);
         gl.setRowCount(8);
-        gl.setPadding(5, padding, 5, 0);
-       Log.d("DEBUG", "padding " + padding);
+        gl.setPadding(0, padding, 0, 0);
         image = new ImageView[64];
         gameLogic.createLogicFeeld(); 
         uiDrawBoard();
-        showToast(this, "Îâöû íà÷èíàşò èãğó");
+        showToast(this, getResources().getString(R.string.game_start));
         setContentView(gl);
-        setOnClickListenerBoard();
-        
+        setOnClickListenerBoard();		
 	}
     
     public void setOnClickListenerBoard(){
@@ -111,12 +107,10 @@ public class MainActivity extends Activity {
         		
         			switch (gameLogic.isWin()) {
 					case 1:
-						showToast(MainActivity.this, "ÎÂÖÛ ÂÛÈÃĞÀËÈ");
-						gl.setClickable(false);
+						showToast(MainActivity.this, getResources().getString(R.string.sheep_win));
 						break;
 					case 2:
-						showToast(MainActivity.this, "ÂÎËÊ ÂÛÈÃĞÀË");
-						gl.setClickable(false);
+						showToast(MainActivity.this, getResources().getString(R.string.wolf_win));
 						break;
 					}
         		}
@@ -239,6 +233,9 @@ public class MainActivity extends Activity {
 			}
 			sheepStart     = false;
 			wolfMakeMove   = false;
+			return true;
+		case R.id.exit:
+			finish();
 			return true;
 		}
 		
