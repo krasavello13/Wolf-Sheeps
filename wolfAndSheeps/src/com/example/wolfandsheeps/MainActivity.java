@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         uiDrawBoard();
         showToast(this, getResources().getString(R.string.game_start));
         setContentView(gl);
-        setOnClickListenerBoard();		
+        setOnClickListenerBoard();
 	}
     
     public void setOnClickListenerBoard(){
@@ -108,9 +108,11 @@ public class MainActivity extends Activity {
         			switch (gameLogic.isWin()) {
 					case 1:
 						showToast(MainActivity.this, getResources().getString(R.string.sheep_win));
+						Utils.setClickableForChildren(gl, false);
 						break;
 					case 2:
 						showToast(MainActivity.this, getResources().getString(R.string.wolf_win));
+						Utils.setClickableForChildren(gl, false);
 						break;
 					}
         		}
@@ -233,6 +235,7 @@ public class MainActivity extends Activity {
 			}
 			sheepStart     = false;
 			wolfMakeMove   = false;
+			Utils.setClickableForChildren(gl, true);
 			return true;
 		case R.id.exit:
 			finish();
